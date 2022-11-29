@@ -2,9 +2,9 @@
   -webkit-transition-property: opacity, border;
   -o-transition-property: opacity, border;
   transition-property: opacity, border;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -14,9 +14,9 @@
   -webkit-transition-property: fill;
   -o-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -49,9 +49,9 @@
   -webkit-transition-property: opacity, border;
   -o-transition-property: opacity, border;
   transition-property: opacity, border;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -60,8 +60,8 @@
 .header-search__input::-webkit-input-placeholder{
   -webkit-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
 }
@@ -69,21 +69,21 @@
 .header-search__input::-moz-placeholder{
   -moz-transition-property: fill;
   transition-property: fill;
-  transition-duration: 0.1s;
+  transition-duration: 0.05s;
   transition-timing-function: ease-in-out;
 }
 
 .header-search__input:-ms-input-placeholder{
   -ms-transition-property: fill;
   transition-property: fill;
-  transition-duration: 0.1s;
+  transition-duration: 0.05s;
   transition-timing-function: ease-in-out;
 }
 
 .header-search__input::-ms-input-placeholder{
   -ms-transition-property: fill;
   transition-property: fill;
-  transition-duration: 0.1s;
+  transition-duration: 0.05s;
   transition-timing-function: ease-in-out;
 }
 
@@ -91,9 +91,9 @@
   -webkit-transition-property: fill;
   -o-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -161,9 +161,9 @@
   -webkit-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -173,9 +173,9 @@
   -webkit-transition-property: fill;
   -o-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -202,9 +202,9 @@
   -webkit-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -214,9 +214,9 @@
   -webkit-transition-property: fill;
   -o-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -226,9 +226,9 @@
   -webkit-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -264,22 +264,9 @@
   -webkit-transition-property: border, background-color;
   -o-transition-property: border, background-color;
   transition-property: border, background-color;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-       -o-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
-}
-
-.section-cart-accordion-checkbox__sign::before,
-.section-cart-accordion-list__item-sign::before{
-  -webkit-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -289,9 +276,9 @@
   -webkit-transition-property: fill;
   -o-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -329,9 +316,9 @@
   -webkit-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -358,9 +345,9 @@
   -webkit-transition-property: fill;
   -o-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -402,9 +389,9 @@
   -webkit-transition-property: color;
   -o-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -414,9 +401,9 @@
   -webkit-transition-property: fill;
   -o-transition-property: fill;
   transition-property: fill;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -451,21 +438,9 @@
   -webkit-transition-property: border, background-color;
   -o-transition-property: border, background-color;
   transition-property: border, background-color;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-       -o-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
-}
-
-.section-total-middle__info-sign::before{
-  -webkit-transition-property: opacity;
-  -o-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -483,9 +458,9 @@
   -webkit-transition-property: background-color;
   -o-transition-property: background-color;
   transition-property: background-color;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -509,9 +484,9 @@
   -webkit-transition-property: opacity;
   -o-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
   -webkit-transition-timing-function: ease-in-out;
        -o-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
@@ -537,16 +512,16 @@
   line-height: 22px;
 }
 
-.modal-checkbox__sign{
-  -webkit-transition-property: border;
-  -o-transition-property: border;
-  transition-property: border;
-  -webkit-transition-duration: 0.1s;
-       -o-transition-duration: 0.1s;
-          transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-       -o-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
+.footer-bottom-list__item-btn:focus{
+  outline: none;
+}
+
+.footer-bottom-list__item-btn:focus path{
+  fill: var(--color_CB11AB);
+}
+
+.footer-bottom-list__item-btn:active path{
+  fill: var(--color_a20e89);
 }
 
 .modal-checkbox__label:hover .modal-checkbox__sign{

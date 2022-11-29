@@ -1407,8 +1407,24 @@ body{
   border: 1px solid var(--color_F55123);
 }
 
+.modal-checkbox__sign::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  border-radius: 100%;
+  border: 5px solid var(--color_CB11AB);
+}
+
 .modal-checkbox__input:checked ~ .modal-checkbox__sign{
-  border: 5px solid var(--color_CB11AB)
+  border: none;
+}
+
+.modal-checkbox__input:checked ~ .modal-checkbox__sign::before{
+  opacity: 1;
 }
 
 .modal-checkbox__btn{
