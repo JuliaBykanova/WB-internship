@@ -1272,7 +1272,7 @@ body{
 
 .modal-delivery-btns__btn{
   width: calc((100%-8px/2));
-  padding: 9px 0 11px;
+  padding: 9px 10px 11px;
   border: 2px solid rgba(203, 17, 171, 0.15);
   border-radius: 20px;
   font-weight: 700;

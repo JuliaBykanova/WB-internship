@@ -47,13 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
     btnMinus.addEventListener('click', function (){
       let count = parseInt(btnMinus.parentNode.querySelector('.section-cart-accordion-list__item-count').innerHTML);
       let btnPlus = btnMinus.parentNode.querySelector('.section-cart-accordion-list__item-plus');
-      if (count !== 1){
+      if (count > 1){
         let newCount = count - 1;
         if (newCount === 1){
           btnMinus.classList.remove('btn-active');
         }
         btnMinus.parentNode.querySelector('.section-cart-accordion-list__item-count').innerHTML = `${newCount}`; 
         btnPlus.classList.add('btn-active');
+      } else{
+        btnMinus.parentNode.querySelector('.section-cart-accordion-list__item-count').innerHTML = '1';
+        btnMinus.classList.remove('btn-active');
       }
       calculateTotalPrice();
     });
@@ -620,6 +623,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       if(massInputs[i].parentNode.querySelector('.section-recipient-form__error')){
         massInputs[i].parentNode.querySelector('.section-recipient-form__error').classList.add('passive');
+        massInputs[i].classList.remove('section-recipient-form__input-wrong');
       }
     };
   };
@@ -659,7 +663,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!tel){
       textErrorTel = 'Укажите номер телефона';
     } else if(!validateTel(tel)){
-      textErrorTel = 'Формат: +9 999 999 99 99';
+      textErrorTel = 'Формат: +9 999 99 99';
     }
     return(textErrorTel);
   }
@@ -671,7 +675,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if(index.length > 10) {
       textErrorIndex = 'Индекс не может быть длинне 10 цифр';
     } else if(!validateIndex(index)){
-      textErrorIndex = 'Формат: 1234567';
+      textErrorIndex = 'Формат: 123456';
     }
     return(textErrorIndex);
   }
@@ -749,7 +753,7 @@ document.addEventListener("DOMContentLoaded", () => {
       count++;
     }
 
-    const resultStr = strNumber.split('').reverse().join('') + ' ' + 'com';
+    const resultStr = strNumber.split('').reverse().join('') + ' ' + 'сом';
     return(resultStr);
   };
 
