@@ -6,6 +6,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const blocksDeliveryPhotos = document.querySelectorAll('.section-delivery-middle__photo-descr');
 
 
+  const itemsAvailable = listItemsAvailable.querySelectorAll('.section-cart-accordion-list__item-remain');
+  let goodsPrices = [];
+
+  for (let i = 0; i<itemsAvailable.length; i++){
+    let itemAmount = parseInt(itemsAvailable[i].querySelector('.section-cart-accordion-list__item-count').innerHTML);
+    let itemTotalPrice = parseInt(itemsAvailable[i].querySelector('.section-cart-accordion-list__item-real-price-number').innerHTML.split(' ').join(''));
+    let itemPreviosTotalPrice = parseInt(itemsAvailable[i].querySelector('.section-cart-accordion-list__item-price-tooltip-text').innerHTML.split(' ').join(''));
+
+    let itemPrice = parseFloat((itemTotalPrice/itemAmount).toFixed(3));
+    let itemPreviosPrice = parseFloat((itemPreviosTotalPrice/itemAmount).toFixed(3));
+    let itemDiscount = itemPreviosPrice - itemPrice;
+
+    goodsPrices.push({'itemPrice': itemPrice, 'itemPreviosPrice': itemPreviosPrice, 'itemDiscount': itemDiscount})
+  }
+
   const accordionHeaders = document.querySelectorAll('.section-cart-accordion__header');
 
   accordionHeaders.forEach(function(accordionHeader){
@@ -19,21 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalSumm = 0;
         let totalAmount = 0;
 
-        listItemsAvailable.querySelectorAll('.section-cart-accordion-list__item-remain').forEach(function(el){
+        /*listItemsAvailable.querySelectorAll('.section-cart-accordion-list__item-remain').forEach(function(el){
           let itemAmount = parseInt(el.querySelector('.section-cart-accordion-list__item-count').innerHTML);
           let itemPrice = parseInt(el.querySelector('.section-cart-accordion-list__item-real-price-number').innerHTML.split(' ').join(''));
 
           totalAmount += itemAmount;
           totalSumm += itemAmount*itemPrice;
 
-        });
+        });*/
 
+        for (let i = 0; i<itemsAvailable.length; i++){
+          if (itemsAvailable[i].classList.contains('section-cart-accordion-list__item-remain')) {
+            const itemAmount = parseInt(itemsAvailable[i].querySelector('.section-cart-accordion-list__item-count').innerHTML);
+            const itemPrice = goodsPrices[i].itemPrice;
+            console.log(itemPrice)
+            totalAmount += itemAmount;
+            totalSumm += itemAmount*itemPrice;
+            console.log(totalSumm)
+          }
+        }
+        
         if (totalAmount%10===1 && totalAmount!==11){
-          accordionHeader.querySelector('.section-cart-accordion__header-text').innerHTML = `${totalAmount}`+' '+'товар'+' · '+makeStrfromNumber(totalSumm);
+          accordionHeader.querySelector('.section-cart-accordion__header-text').innerHTML = `${totalAmount}`+' '+'товар'+' · '+makeStrfromNumber(parseFloat((totalSumm).toFixed(3))) + ' ' + 'сом';
         } else if ((totalAmount%10===2 || totalAmount%10===3 || totalAmount%10==4) && (totalAmount!==12 || totalAmount!==13 || totalAmount!==14)){
-          accordionHeader.querySelector('.section-cart-accordion__header-text').innerHTML = `${totalAmount}`+' '+'товара'+' · '+makeStrfromNumber(totalSumm);
+          accordionHeader.querySelector('.section-cart-accordion__header-text').innerHTML = `${totalAmount}`+' '+'товара'+' · '+makeStrfromNumber(parseFloat((totalSumm).toFixed(3))) + ' ' + 'сом';
         } else{
-          accordionHeader.querySelector('.section-cart-accordion__header-text').innerHTML = `${totalAmount}`+' '+'товаров'+' · '+makeStrfromNumber(totalSumm);
+          accordionHeader.querySelector('.section-cart-accordion__header-text').innerHTML = `${totalAmount}`+' '+'товаров'+' · '+makeStrfromNumber(parseFloat((totalSumm).toFixed(3))) + ' ' + 'сом';
         };
       };
     });
@@ -143,7 +169,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const indexInput = document.getElementById('index');
   const massInputs = [nameInput, surnameInput, emailInput, telInput, indexInput];
 
-  
+  if (window.screen.availWidth < 685){
+    emailInput.parentNode.querySelector('.section-recipient-form__label').innerHTML = 'Электронная почта'
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.screen.availWidth < 685){
+      emailInput.parentNode.querySelector('.section-recipient-form__label').innerHTML = 'Электронная почта'
+    }
+  });
 
   telInput.addEventListener('focus', function() {
     if(!this.value.trim()){
@@ -171,10 +205,29 @@ document.addEventListener("DOMContentLoaded", () => {
   });*/
 
   telInput.addEventListener("keypress", function(){
-    if (this.value.length===2 || this.value.length===6 || this.value.length===10 || this.value.length===13){
+    if (this.value.length===18){
       this.value=this.value+" ";
     } 
   });
+
+  telInput.addEventListener("keypress", function(){
+    if (this.value.length===2){
+      this.value=this.value+" (";
+    } 
+  });
+
+  telInput.addEventListener("keypress", function(){
+    if (this.value.length===7){
+      this.value=this.value+") ";
+    } 
+  });
+
+  telInput.addEventListener("keypress", function(){
+    if (this.value.length===12 || this.value.length===15){
+      this.value=this.value+"-";
+    } 
+  });
+
 
   for(let i in massInputs){
     massInputs[i].addEventListener('blur', () => {
@@ -279,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
     homeAdress: ['Бишкек, улица Табышалиева, 57', 
     'Бишкек, улица Жукеева-Пудовкина, 77/1', 
     'Бишкек, микрорайон Джал, улица Ахунбаева Исы, 67/1'],
-    pointAdress: ['Бишкек, улица Ахматбека Суюмбаева, 12/1', 
+    pointAdress: ['г. Бишкек, улица Ахматбека Суюмбаева, 12/1', 
     'г. Бишкек, микрорайон Джал, улица Ахунбаева Исы, д. 67/1', 
     'г. Бишкек, улица Табышалиева, д. 57'],
     allCardsName: ['mir', 'visa', 'mastercard', 'maestro'],
@@ -382,6 +435,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hangListenerOnModalBtns (modalDeliveryBtn1, modalDeliveryBtn2, pointAdress, homeAdress, deliveryAdress, allCardsName, modalCheckboxesList, modalDeliveryTitle);
 
     }else if(cardNumber){
+      modalContainer.classList.add('modal-container-card');
       createModalCheckboxes(allCardsNumber, false, false, cardNumber, allCardsName, modalCheckboxesList);
     };
 
@@ -530,6 +584,8 @@ document.addEventListener("DOMContentLoaded", () => {
           modalCheckbox.remove();
         });
       }else{
+        modalCheckbox.classList.add('modal-checkbox-card');
+        modalCheckboxLabel.classList.add('modal-checkbox__label-card');
         modalCheckboxDescr.classList.add('modal-checkbox__text', 'flex');
         modalCheckboxIcon.classList.add('modal-checkbox__icon');
 
@@ -663,7 +719,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!tel){
       textErrorTel = 'Укажите номер телефона';
     } else if(!validateTel(tel)){
-      textErrorTel = 'Формат: +9 999 999 99 99';
+      textErrorTel = 'Формат: +9 (999) 999-99-99';
     }
     return(textErrorTel);
   }
@@ -690,7 +746,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function validateTel(tel){
     return tel.match(
-      /^[+][0-9][\s][0-9]{3}[\s][0-9]{3}[\s][0-9]{2}[\s][0-9]{2}$/
+      /^[+][0-9][\s][(][0-9]{3}[)][\s][0-9]{3}[-][0-9]{2}[-][0-9]{2}$/
     );
   };
 
@@ -708,18 +764,74 @@ document.addEventListener("DOMContentLoaded", () => {
     let totalDiscount = 0;
     let totalAmount = 0;
 
-    listItemsAvailable.querySelectorAll('.section-cart-accordion-list__item-remain').forEach(function(el){
-      if (el.querySelector('.section-cart-accordion-list__item-input').checked) {
-        let itemAmount = parseInt(el.querySelector('.section-cart-accordion-list__item-count').innerHTML);
-        let itemPrice = parseInt(el.querySelector('.section-cart-accordion-list__item-real-price-number').innerHTML.split(' ').join(''));
-        let itemPreviosPrice = parseInt(el.querySelector('.section-cart-accordion-list__item-price-tooltip-text').innerHTML.split(' ').join(''));
-        let itemDiscount = itemPreviosPrice - itemPrice;
-        totalAmount += itemAmount
-        totalSumm += itemAmount*itemPrice;
-        totalPreviousSumm += itemAmount*itemPreviosPrice
-        totalDiscount += itemAmount*itemDiscount;
-      };
-    });
+    for (let i = 0; i<itemsAvailable.length; i++){
+      if (itemsAvailable[i].classList.contains('section-cart-accordion-list__item-remain')) {
+        if (itemsAvailable[i].querySelector('.section-cart-accordion-list__item-input').checked) {
+          const itemAmount = parseInt(itemsAvailable[i].querySelector('.section-cart-accordion-list__item-count').innerHTML);
+          const totalItemPrice = parseFloat((itemAmount*goodsPrices[i].itemPrice).toFixed(3));
+          const totalItemPreviosPrice = parseFloat((itemAmount*goodsPrices[i].itemPreviosPrice).toFixed(3));
+          
+          totalSumm += totalItemPrice;
+          totalPreviousSumm += totalItemPreviosPrice;
+          totalAmount += itemAmount
+          totalDiscount += itemAmount*goodsPrices[i].itemDiscount;
+
+          const totalItemPriceText = itemsAvailable[i].querySelector('.section-cart-accordion-list__item-real-price-number');
+  
+          totalItemPriceText.innerHTML = makeStrfromNumber(totalItemPrice);
+          itemsAvailable[i].querySelector('.section-cart-accordion-list__item-price-tooltip-text').innerHTML = makeStrfromNumber(totalItemPreviosPrice) + ' ' + 'сом';
+          
+
+          if (window.screen.availWidth < 685){
+            if(totalItemPriceText.innerHTML.length > 10){
+              totalItemPriceText.parentNode.parentNode.classList.add('column');
+              itemsAvailable[i].querySelector('.section-cart-accordion-list__item-remain-content').classList.add('column-padding');
+            } else{
+              totalItemPriceText.parentNode.parentNode.classList.remove('column');
+              itemsAvailable[i].querySelector('.section-cart-accordion-list__item-remain-content').classList.remove('column-padding');
+            };
+          } else{
+            totalPrice.classList.remove('section-total-top__total-price-small');
+            totalItemPriceText.parentNode.parentNode.classList.remove('column');
+            itemsAvailable[i].querySelector('.section-cart-accordion-list__item-remain-content').classList.remove('column-padding');
+            if(totalItemPriceText.innerHTML.length > 12){
+              totalItemPriceText.classList.add('section-cart-accordion-list__item-real-price-number-too-big');
+            } else if (totalItemPriceText.innerHTML.length > 6) {
+              totalItemPriceText.classList.add('section-cart-accordion-list__item-real-price-number-big');
+              totalItemPriceText.classList.remove('section-cart-accordion-list__item-real-price-number-too-big');
+            } else {
+              totalItemPriceText.classList.remove('section-cart-accordion-list__item-real-price-number-big');
+            };
+          };
+
+          window.addEventListener('resize', () => {
+            if (window.screen.availWidth < 685){
+              if(totalItemPriceText.innerHTML.length > 10){
+                totalItemPriceText.parentNode.parentNode.classList.add('column');
+                itemsAvailable[i].querySelector('.section-cart-accordion-list__item-remain-content').classList.add('column-padding');
+              } else{
+                totalItemPriceText.parentNode.parentNode.classList.remove('column');
+                itemsAvailable[i].querySelector('.section-cart-accordion-list__item-remain-content').classList.remove('column-padding');
+              };
+            } else{
+              totalPrice.classList.remove('section-total-top__total-price-small');
+              totalItemPriceText.parentNode.parentNode.classList.remove('column');
+              itemsAvailable[i].querySelector('.section-cart-accordion-list__item-remain-content').classList.remove('column-padding');
+              if(totalItemPriceText.innerHTML.length > 12){
+                totalItemPriceText.classList.add('section-cart-accordion-list__item-real-price-number-too-big');
+              } else if (totalItemPriceText.innerHTML.length > 6) {
+                totalItemPriceText.classList.add('section-cart-accordion-list__item-real-price-number-big');
+                totalItemPriceText.classList.remove('section-cart-accordion-list__item-real-price-number-too-big');
+              } else {
+                totalItemPriceText.classList.remove('section-cart-accordion-list__item-real-price-number-big');
+              };
+            };
+          });
+          
+        };
+      }
+
+    }
 
     if (totalAmount%10===1 && totalAmount!==11){
       blockForPrice.querySelector('.section-total-top__item-amount').innerHTML = `${totalAmount}`+' '+'товар';
@@ -729,13 +841,31 @@ document.addEventListener("DOMContentLoaded", () => {
       blockForPrice.querySelector('.section-total-top__item-amount').innerHTML = `${totalAmount}`+' '+'товаров';
     }
 
-    totalPrice.innerHTML = makeStrfromNumber(totalSumm);
-    blockForPrice.querySelector('.section-total-top__item-prev-price').innerHTML = makeStrfromNumber(totalPreviousSumm);
-    blockForPrice.querySelector('.section-total-top__item-discount').innerHTML = '−'+ makeStrfromNumber(totalDiscount);
+    totalPrice.innerHTML = makeStrfromNumber(totalSumm)  + ' ' + 'сом';
+    blockForPrice.querySelector('.section-total-top__item-prev-price').innerHTML = makeStrfromNumber(totalPreviousSumm)  + ' ' + 'сом';
+    blockForPrice.querySelector('.section-total-top__item-discount').innerHTML = '−'+ makeStrfromNumber(totalDiscount)  + ' ' + 'сом';
 
     if (payNowCheck.checked){
       oderBtn.innerHTML = 'Оплатить' + ' ' + `${totalPrice.innerHTML}`;
-    }
+    };
+
+    if (window.screen.availWidth < 1399) {
+      if (totalPrice.innerHTML.length > 15){
+        totalPrice.classList.add('section-total-top__total-price-small');
+      } else {
+        totalPrice.classList.remove('section-total-top__total-price-small');
+      };
+    };
+
+    window.addEventListener('resize', () => {
+      if (window.screen.availWidth < 1399) {
+        if (totalPrice.innerHTML.length > 15){
+          totalPrice.classList.add('section-total-top__total-price-small');
+        } else {
+          totalPrice.classList.remove('section-total-top__total-price-small');
+        };
+      };
+    })
 
     calculateAmountInDilivery();
   };
@@ -746,14 +876,19 @@ document.addEventListener("DOMContentLoaded", () => {
     let count = 0;
 
     for (let i in masNumber){
-      if(count%3===0){
+      if(count%3===0 && masNumber[masNumber.length-1-i] !== '.'){
         strNumber += ' ';
       }
+      if (masNumber[masNumber.length-1-i] === '.'){
+        count = 0;
+      } else {
+        count++;
+      }
       strNumber += `${masNumber[masNumber.length-1-i]}`;
-      count++;
+      
     }
 
-    const resultStr = strNumber.split('').reverse().join('') + ' ' + 'сом';
+    const resultStr = strNumber.split('').reverse().join('');
     return(resultStr);
   };
 
@@ -839,6 +974,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
   };
+
+  calculateTotalPrice();
 
 });
 

@@ -506,7 +506,7 @@
 }
 
 .section-recipient-form__input:focus + .section-recipient-form__label{
-  top: -18px;
+  top: -24px;
   opacity: 1;
   font-size: 13px;
   line-height: 22px;
@@ -530,5 +530,77 @@
 
 .modal-checkbox__input:focus ~ .modal-checkbox__sign{
   border: 1px solid var(--color_CB11AB);
+}
+
+.modal-delivery-btns__btn:hover{
+  border: 2px solid var(--color_f265da);
+}
+
+.modal-delivery-btns__btn:focus{
+  outline: none;
+  border: 2px solid var(--color_f265da);
+}
+
+.modal-delivery-btns__btn:active{
+  border: 2px solid var(--color_a20e89);
+}
+
+.modal-checkbox__btn:focus{
+  outline: none;
+}
+
+.modal-checkbox__btn:hover{
+  background-image: url(../img/delete-red.svg);
+}
+
+
+.modal-checkbox__btn:focus{
+  outline: none;
+  background-image: url(../img/delete-red.svg);
+}
+
+
+.modal-checkbox__btn:active{
+  background-image: url(../img/delete-red.svg);
+}
+
+.modal-submit__btn{
+  -webkit-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 0.05s;
+       -o-transition-duration: 0.05s;
+          transition-duration: 0.05s;
+  -webkit-transition-timing-function: ease-in-out;
+       -o-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.modal-submit__btn:hover{
+  background-color: var(--color_f265da);
+}
+
+.modal-submit__btn:focus{
+  outline: none;
+  background-color: var(--color_f265da);
+}
+
+.modal-submit__btn:active{
+  background-color: var(--color_a20e89);
+}
+
+.modal-header__btn:hover{
+  background-image: url(../img/close-sign-red.svg);
+}
+
+
+.modal-header__btn:focus{
+  outline: none;
+  background-image: url(../img/close-sign-red.svg);
+}
+
+
+.modal-header__btn:active{
+  background-image: url(../img/close-sign-red.svg);
 }
 
